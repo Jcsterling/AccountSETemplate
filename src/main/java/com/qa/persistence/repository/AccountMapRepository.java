@@ -9,13 +9,14 @@ import com.qa.util.JSONUtil;
 public class AccountMapRepository implements AccountRepository{
 	
 	JSONUtil jsonutil = new JSONUtil();
-	private Map<Long, Account> accountMap = new HashMap<>();
+	private Map<Integer, Account> accountMap = new HashMap<>();
 	private int newID = 0;
-	Long accID = new Long(newID);
+//	Long accID = new Long(newID);
 	
 
 	public String getAllAccounts() {
-		// TODO Auto-generated method stub
+		accountMap.size();
+		
 		
 		return null;
 	}
@@ -23,8 +24,11 @@ public class AccountMapRepository implements AccountRepository{
 	public String createAccount(String account) {
 		
 		Account jsonaccount = jsonutil.getObjectForJSON(account, Account.class);
-		accountMap.put(accID, jsonaccount);
+		accountMap.put(newID, jsonaccount);
 		newID++;
+		
+		
+	
 		
 		return "yes";
 		
@@ -32,8 +36,9 @@ public class AccountMapRepository implements AccountRepository{
 	}
 
 	public String deleteAccount(Long id) {
+		accountMap.remove(id);
 		// TODO Auto-generated method stub
-		return null;
+		return "deleted";
 	}
 
 	public String updateAccount(Long id, String account) {
@@ -54,6 +59,14 @@ public class AccountMapRepository implements AccountRepository{
 	}
 
 	
+
+	public Map<Integer, Account> getAccountMap() {
+		return accountMap;
+	}
+
+	public void setAccountMap(Map<Integer, Account> accountMap) {
+		this.accountMap = accountMap;
+	}
 
 	@Override
 	public String toString() {

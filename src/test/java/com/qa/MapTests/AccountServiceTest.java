@@ -42,7 +42,6 @@ public class AccountServiceTest {
 
 		//turn testAccount2 object in to a string 
 		String jsonaccount = jsonutil.getJSONForObject(testAccount2);
-
 		service.createAccount(jsonaccount);
 		assertEquals(jsonaccount, service.getAccount());
 	}
@@ -56,8 +55,11 @@ public class AccountServiceTest {
 
 	@Test
 	public void removeAccountTest() {
-//		Account testAcount2 = new Account();
-//		service.deleteAccount();
+		Account testAccount3 = new Account("send", "n", "007");
+		String jsonaccount = jsonutil.getJSONForObject(testAccount3);
+		service.createAccount(jsonaccount);
+		service.deleteAccount(0L);
+		assertEquals(0, service.getAccountMap().size());
 
 	}
 
