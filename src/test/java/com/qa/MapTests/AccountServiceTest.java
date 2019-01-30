@@ -128,7 +128,7 @@ public class AccountServiceTest {
 	public void accountConversionToJSONTest() {
 		Account testAccount0 = new Account("wendy", "singh", "1994443");
 		String jsonaccount = jsonutil.getJSONForObject(testAccount0); 
-		System.out.println(jsonaccount);
+		//System.out.println(jsonaccount);
 		assertEquals("{\"firstName\":\"wendy\",\"lastName\":\"singh\",\"accNumber\":\"1994443\"}", jsonaccount);
 		
 
@@ -152,10 +152,10 @@ public class AccountServiceTest {
 	public void getCountForFirstNamesInAccountWhenOne() {
 		
 
-		Account testAccount9 = new Account("john", "brown", "007111");
-		Account testAccount10 = new Account("jima", "kanban", "008545");
-		String jsonaccount = jsonutil.getJSONForObject(testAccount9); 
-		String jsonaccount1 = jsonutil.getJSONForObject(testAccount10); 
+		Account testAccount11 = new Account("john", "brown", "007111");
+		Account testAccount12 = new Account("jima", "kanban", "008545");
+		String jsonaccount = jsonutil.getJSONForObject(testAccount11); 
+		String jsonaccount1 = jsonutil.getJSONForObject(testAccount12); 
 		service.createAccount(jsonaccount);
 		service.createAccount(jsonaccount1);
 		
@@ -168,10 +168,10 @@ public class AccountServiceTest {
 	public void getCountForFirstNamesInAccountWhenMult() {
 		
 
-		Account testAccount9 = new Account("john", "brown", "007111");
-		Account testAccount10 = new Account("john", "kanban", "008545");
-		String jsonaccount = jsonutil.getJSONForObject(testAccount9); 
-		String jsonaccount1 = jsonutil.getJSONForObject(testAccount10); 
+		Account testAccount13 = new Account("john", "brown", "007111");
+		Account testAccount14 = new Account("john", "kanban", "008545");
+		String jsonaccount = jsonutil.getJSONForObject(testAccount13); 
+		String jsonaccount1 = jsonutil.getJSONForObject(testAccount14); 
 		service.createAccount(jsonaccount);
 		service.createAccount(jsonaccount1);
 		
