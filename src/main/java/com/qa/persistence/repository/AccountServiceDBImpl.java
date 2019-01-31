@@ -28,10 +28,13 @@ public class AccountServiceDBImpl implements AccountRepository{
 	private JSONUtil jsonutil;
 	
 	public String getAllAccounts() {
-		Query query = em.createQuery("SELECT m FROM ACCOUNT m");
-		List<Account> accounts = (List<Account>) query.getResultList();
-		String jsonaccount = jsonutil.getJSONForObject(accounts);
-		return jsonaccount;
+		
+		TypedQuery<Account> query = em.createQuery("SELECT m FROM Account m", Account.class);
+		
+//		Query query = em.createQuery("SELECT m FROM ACCOUNT m", Account.class);
+//		List<Account> accounts = (List<Account>) query.getResultList();
+//		String jsonaccount = jsonutil.getJSONForObject(accounts);
+		return jsonutil.getJSONForObject(query.getResultList());
 	}
 
 
@@ -52,6 +55,7 @@ public class AccountServiceDBImpl implements AccountRepository{
 		return "{\"message\": \"account sucessfully deleted\"}";
 	}
 
+	@Override
 	@Transactional(REQUIRED)
 	public String updateAccount(Long id, String account) {
 		Account accountToDelete = em.find(Account.class, id);

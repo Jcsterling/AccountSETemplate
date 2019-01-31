@@ -9,6 +9,7 @@ import com.qa.util.JSONUtil;
 
 public class AccountServiceImpl implements AccountService {
 	
+	@Inject
 	private JSONUtil jsonutil;
 
 	@Inject
@@ -19,13 +20,13 @@ public class AccountServiceImpl implements AccountService {
 		return repository.getAllAccounts();	
 	}
 	
+	@Override
 	public String createAccount(String account) {
 		Account objectAccount = jsonutil.getObjectForJSON(account, Account.class);
 		if (objectAccount.getAccNumber().equals("9")) {
 			return "{“message”: “This account is blocked”}";
 		}
 		return repository.createAccount(account);
-		
 	}
 	
 	public String deleteAccount(Long id) {
