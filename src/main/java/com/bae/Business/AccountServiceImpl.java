@@ -7,7 +7,7 @@ import com.qa.persistence.repository.AccountRepository;
 import com.qa.util.JSONUtil;
 
 
-public class AccountServiceImpl {
+public class AccountServiceImpl implements AccountService {
 	
 	private JSONUtil jsonutil;
 
@@ -15,7 +15,7 @@ public class AccountServiceImpl {
 	private AccountRepository repository;
 	
 	
-	public String getAllaccounts() {
+	public String getAllAccounts() {
 		return repository.getAllAccounts();	
 	}
 	
@@ -33,7 +33,9 @@ public class AccountServiceImpl {
 		
 	}
 	
-	public String updateAccount(String account, Long id) {
+	public String updateAccount(Long id, String account) {
 		return repository.updateAccount(id, account);
 	}
+
+
 }
