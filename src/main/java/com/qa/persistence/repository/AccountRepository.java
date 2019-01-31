@@ -1,6 +1,6 @@
 package com.qa.persistence.repository;
 
-public interface AccountRepository {
+public interface AccountRepository{
 
 	String getAllAccounts();
 	String createAccount(String account);

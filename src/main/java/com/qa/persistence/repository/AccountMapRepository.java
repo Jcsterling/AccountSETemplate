@@ -63,17 +63,17 @@ public class AccountMapRepository implements AccountRepository{
 
 	public int getFirstNameCount(String firstname) {
 		
-		int numberOfNamesFound = 0;
+		int numberOfFirstNamesFound = 0;
 		
 		
 		
 
 		for (Account eachAccount : accountMap.values()) {
 			if (eachAccount.getFirstName().equals(firstname)) {
-				numberOfNamesFound++;
+				numberOfFirstNamesFound++;
 			}
 		}
-		return numberOfNamesFound;
+		return numberOfFirstNamesFound;
 		
 		
 		
