@@ -155,12 +155,33 @@
 			</build>
 		</profile>
 	</profiles>
-
+	
 	<build>
 		<!-- Maven will append the version to the finalName (which is the name 
 			given to the generated WAR, and hence the context root) -->
 		<finalName>${project.artifactId}</finalName>
+		
 		<plugins>
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>jacoco-initialize</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>jacoco-site</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+   
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${version.war.plugin}</version>
@@ -178,6 +199,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+
 </project>
   
   
